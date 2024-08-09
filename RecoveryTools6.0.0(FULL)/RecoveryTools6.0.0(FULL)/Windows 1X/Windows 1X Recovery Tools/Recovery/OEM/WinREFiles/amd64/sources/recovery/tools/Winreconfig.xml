@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Recovery>
+   <RecoveryTools>
+      <RelativeFilePath>.\AutoIt\AutoIt3_amd64.exe X:\sources\recovery\Tools\Menu.au3</RelativeFilePath>
+	 </RecoveryTools>
+</Recovery>

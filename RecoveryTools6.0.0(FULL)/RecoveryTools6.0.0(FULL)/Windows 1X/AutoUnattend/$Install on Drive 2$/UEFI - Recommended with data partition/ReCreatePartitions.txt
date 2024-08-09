@@ -1,0 +1,25 @@
+REM - GPT for UEFI
+REM Partition 1 : System / FAT32 / 250mb / S:
+REM Partition 2 : MSR / 16mb
+REM Partition 3 : Windows / NTFS / 60go / W:
+REM Partition 4 : Data / NTFS / All disk / H:
+REM Partition 5 : Recovery Tools / NTFS / 1024mb / T:
+select disk 2
+clean
+convert gpt
+create partition efi size=250
+format quick fs=fat32 label="System"
+assign letter="S"
+create partition msr size=16
+create partition primary size=60000
+format quick fs=ntfs label="Windows"
+assign letter="W"
+create partition primary
+shrink minimum=1024
+format quick fs=ntfs label="Data"
+assign letter="H"
+create partition primary
+format quick fs=ntfs label="Windows RE tools"
+set id=de94bba4-06d1-4d40-a16a-bfd50179d6ac
+assign letter="T"
+exit

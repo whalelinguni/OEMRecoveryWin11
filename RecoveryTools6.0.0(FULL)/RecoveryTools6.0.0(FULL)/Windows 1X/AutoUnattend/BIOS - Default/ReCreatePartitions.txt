@@ -1,0 +1,18 @@
+REM - MBR for BIOS
+REM Partition 1 : Recovery Tools / NTFS / 1024mb / R:
+REM Partition 2 : System / NTFS / 250mb / S:
+REM Partition 3 : Windows / NTFS / All disk / W:
+select disk 0
+clean
+create partition primary size=1024
+format quick fs=ntfs label="Windows RE tools"
+set id=27
+assign letter="R" 
+create partition primary size=250
+format quick fs=ntfs label="System"
+assign letter="S" 
+active 
+create partition primary 
+format quick fs=ntfs label="Windows" 
+assign letter="W" 
+exit
